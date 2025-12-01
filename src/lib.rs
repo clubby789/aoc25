@@ -1,3 +1,5 @@
+mod utils;
+
 use seq_macro::seq;
 
 type AocFn = fn(&str) -> either::Either<u64, String>;
