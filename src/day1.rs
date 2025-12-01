@@ -6,8 +6,8 @@ pub fn part1(input: &str) -> either::Either<u64, String> {
     let mut count = 0;
     let mut dial = 50i16;
     for_each_line(input, |action| {
-        dial = (dial + action.0.get()).rem_euclid(100);
-        if dial == 0 {
+        dial += action.0.get();
+        if dial.rem_euclid(100) == 0 {
             count += 1;
         }
     });
