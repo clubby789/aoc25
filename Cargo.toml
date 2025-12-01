@@ -1,0 +1,30 @@
+[package]
+name = "advent-of-code"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+either = "1.15.0"
+seq-macro = "0.3.6"
+
+[dev-dependencies]
+criterion = "0.8"
+
+[profile.dev]
+opt-level = 1
+
+[profile.release]
+debug = true
+lto = "thin"
+codegen-units = 1
+panic = "abort"
+
+[profile.bench]
+opt-level = 3
+debug = 2
+lto = "thin"
+codegen-units = 1
+
+[[bench]]
+name = "bench"
+harness = false
