@@ -1,7 +1,7 @@
 use crate::utils::parse_num;
 
-pub fn part1(input: &str) -> either::Either<u64, String> {
-    let sum = input
+pub fn part1(input: &str) -> u64 {
+    input
         .trim_end_matches('\n')
         .split(',')
         .flat_map(|range| {
@@ -13,8 +13,7 @@ pub fn part1(input: &str) -> either::Either<u64, String> {
             start..=end
         })
         .filter(|id| invalid_id_part1(*id))
-        .sum::<u64>();
-    either::Either::Left(sum)
+        .sum::<u64>()
 }
 
 fn invalid_id_part1(id: u64) -> bool {
@@ -27,8 +26,8 @@ fn invalid_id_part1(id: u64) -> bool {
     hi_digits == lo_digits
 }
 
-pub fn part2(input: &str) -> either::Either<u64, String> {
-    let sum = input
+pub fn part2(input: &str) -> u64 {
+    input
         .trim_end_matches('\n')
         .split(',')
         .flat_map(|range| {
@@ -40,8 +39,7 @@ pub fn part2(input: &str) -> either::Either<u64, String> {
             start..=end
         })
         .filter(|id| invalid_id_part2(*id))
-        .sum::<u64>();
-    either::Either::Left(sum)
+        .sum::<u64>()
 }
 
 fn invalid_id_part2(id: u64) -> bool {

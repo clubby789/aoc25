@@ -2,7 +2,7 @@ use std::num::NonZeroI16;
 
 use crate::utils::parse_num_array;
 
-pub fn part1(input: &str) -> either::Either<u64, String> {
+pub fn part1(input: &str) -> u64 {
     let mut count = 0;
     let mut dial = 50i16;
     for_each_line(input, |action| {
@@ -11,7 +11,7 @@ pub fn part1(input: &str) -> either::Either<u64, String> {
             count += 1;
         }
     });
-    either::Either::Left(count)
+    count
 }
 
 struct Action(NonZeroI16);
@@ -53,7 +53,7 @@ where
     }
 }
 
-pub fn part2(input: &str) -> either::Either<u64, String> {
+pub fn part2(input: &str) -> u64 {
     let mut dial = 50;
     let mut count = 0;
     for_each_line(input, |action| {
@@ -62,7 +62,7 @@ pub fn part2(input: &str) -> either::Either<u64, String> {
         count += tmp_count;
     });
 
-    either::Either::Left(count)
+    count
 }
 
 /// Same as [`wrapping_add`], but counts the number of times 0 was passed during rotation
