@@ -5,7 +5,7 @@ use seq_macro::seq;
 type AocFn = fn(&str) -> u64;
 
 seq! {
-    N in 1..=3 {
+    N in 1..=4 {
         #(
             pub mod day~N;
         )*
